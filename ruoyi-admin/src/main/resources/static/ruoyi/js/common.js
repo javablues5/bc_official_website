@@ -591,3 +591,46 @@ $.ajaxSetup({
         }
     }
 });
+
+/** 图片预览 */
+function previewImage(imageUrl) {
+    var img = new Image();
+    img.onload = function() {
+        var maxWidth = Math.min(window.innerWidth * 0.9, 1000);
+        var maxHeight = Math.min(window.innerHeight * 0.9, 700);
+        
+        var width = this.naturalWidth;
+        var height = this.naturalHeight;
+        
+        if (width > maxWidth || height > maxHeight) {
+            var ratio = Math.min(maxWidth / width, maxHeight / height);
+            width = width * ratio;
+            height = height * ratio;
+        }
+        
+        width = Math.max(width, 300);
+        height = Math.max(height, 200);
+        
+        top.layer.open({
+            title: false,
+            type: 1,
+            closeBtn: true,
+            shadeClose: true,
+            area: [width + 'px', height + 'px'],
+            content: '<div style="text-align: center; padding: 10px;"><img src="' + imageUrl + '" style="max-width: 100%; max-height: 100%; width: auto; height: auto;" /></div>'
+        });
+    };
+    
+    img.onerror = function() {
+        top.layer.open({
+            title: '图片预览',
+            type: 1,
+            closeBtn: true,
+            shadeClose: true,
+            area: ['500px', '400px'],
+            content: '<div style="text-align: center; padding: 20px; color: #999;">图片加载失败</div>'
+        });
+    };
+    
+    img.src = imageUrl;
+}
