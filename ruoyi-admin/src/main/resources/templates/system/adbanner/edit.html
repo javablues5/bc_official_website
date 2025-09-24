@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <input type="file" id="uploadInput" style="display: none;" accept="image/*">
-                <img id="previewImage" th:if="${adBanner.imageUrl != null and adBanner.imageUrl != ''}" style="max-width:200px; margin-top:10px; cursor: pointer;" th:src="${adBanner.imageUrl}" onclick="previewImage(this.src)">
+                <img id="previewImage" th:if="${adBanner.imageUrl != null and adBanner.imageUrl != ''}" style="max-width:200px; margin-top:10px; cursor: pointer;" th:src="${adBanner.imageUrl}">
             </div>
         </div>
         
@@ -196,12 +196,11 @@
                 $("#previewImage").attr("src", fileUrl);
             } else {
                 // 如果没有预览图片，创建一个
-                $("#" + id).parent().after('<img id="previewImage" style="max-width:200px; margin-top:10px; cursor: pointer;" src="' + fileUrl + '" onclick="previewImage(this.src)">');
+                $("#" + id).parent().after('<img id="previewImage" style="max-width:200px; margin-top:10px; cursor: pointer;" src="' + fileUrl + '">');
             }
             layer.close(frameIndex);
         };
     }
-    
 
 </script>
 </body>
