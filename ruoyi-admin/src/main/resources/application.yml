@@ -141,7 +141,7 @@ csrf:
   # 过滤开关
   enabled: false
   # 白名单（多个用逗号分隔）
-  whites: /druid
+  whites: /druid,/official_website/profile/upload/**
 
 # Swagger配置
 swagger:
