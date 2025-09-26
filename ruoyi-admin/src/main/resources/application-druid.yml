@@ -6,9 +6,9 @@ spring:
         druid:
             # 主库数据源
             master:
-                url: jdbc:mysql://localhost:3306/ry_01?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-                username: root
-                password: admin
+                url: jdbc:mysql://47.128.214.217:8306/OfficialWebsite?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+                username: official_user
+                password: OfficialWeb123!@#
             # 从库数据源
             slave:
                 # 从数据源开关/默认关闭
